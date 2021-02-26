@@ -1,6 +1,8 @@
 import React from 'react';
 import Card from './Card';
-import NumberFormat from 'react-number-format';
+import CountUp from 'react-countup';
+
+import './Header.css';
 
 
 const CovidSummary = (props) => {
@@ -15,44 +17,42 @@ const CovidSummary = (props) => {
     return (
         <div>
            <div>
-                <h1 style={{textTransform: 'capitalize'}}>{country === '' ? 'Global Covid 19 Report' : country}</h1>
+                <h1 className="header" style={{textTransform: 'capitalize'}}>{country === '' ? 'Global Covid 19 Report' : country}</h1>
+
                     <div style={{ 
                     display: 'flex', 
                     justifyContent: 'center'
                     }}>
                         <Card>
-                        <span>Total Cases</span><br />
-                        <span>{
-                                 <NumberFormat 
-                                 value={totalCases}   
-                                 displayType={'text'}
-                                 thousandSeparator={true}
-                                />
-                              }
+                        <span className="numCases">Total Cases</span><br />
+                        <span className="numCases"><CountUp 
+                           start={0} 
+                           end={totalCases} 
+                           duration={2.5} 
+                           separator="," 
+                           />
                         </span>
                         </Card>
 
                         <Card>
-                        <span>Total Recovered</span><br />
-                        <span>{
-                                 <NumberFormat 
-                                 value={totalRecovered}   
-                                 displayType={'text'}
-                                 thousandSeparator={true}
-                                />
-                              }
+                        <span className="numRecovered">Total Recovered</span><br />
+                        <span className="numRecovered"><CountUp 
+                           start={0} 
+                           end={totalRecovered} 
+                           duration={2.5} 
+                           separator="," 
+                           />
                         </span>
                         </Card>
 
                         <Card>
-                        <span>Total Deaths</span><br />
-                        <span>{
-                                 <NumberFormat 
-                                 value={totalDeaths}   
-                                 displayType={'text'}
-                                 thousandSeparator={true}
-                                />
-                              }
+                        <span className="numDeaths">Total Deaths</span><br />
+                        <span className="numDeaths"><CountUp 
+                           start={0} 
+                           end={totalDeaths} 
+                           duration={2.5} 
+                           separator="," 
+                           />
                         </span>
                         </Card>
                     </div>

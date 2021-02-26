@@ -48,6 +48,12 @@ function App() {
   }, []);
 
 
+
+
+/////////////////////////////////////////////////////////
+
+
+
   const formatDate = (date) => {
      const d = new Date(date);
 
@@ -78,9 +84,9 @@ function App() {
       console.log(res);
 
       const yAxisCoronaCount = res.data.map(d => d.Cases);
-      const xAxisLabel = res.data.map(d => d.Date); // return an array of the dates for countrySlug.
+      const xAxisLabel = res.data.map(d => d.Date); // return an array of the dates.
      
-      const covidDetails = covidSummary.Countries.find(country => country.Slug === countrySlug); // return the object whose country.Slug === countrySlug. 
+      const covidDetails = covidSummary.Countries.find(country => country.Slug === countrySlug); // return the object whose country.Slug === countrySlug. The summary information of the chosen country
       
       setCoronaCountAr(yAxisCoronaCount);
       setTotalCases(covidDetails.TotalConfirmed);
@@ -107,11 +113,15 @@ function App() {
 
 
 
+
+//////////////////////
+
+
+
+
   if(loading){
     return <p>Fetching data from api...!</p>
   }
-
-
 
   return (
     <div className="App">
